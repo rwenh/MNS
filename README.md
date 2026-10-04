@@ -9,31 +9,34 @@ Designed with clear separation of API headers, source implementations, CMake bui
 
 ```text
 dsa_learning/
-├── CMakeLists.txt          # Top-level build configuration (C11, static lib + executable)
-├── README.md               # This file
-├── main.c                  # Driver that exercises all modules
-├── array_ops.c
-├── recursion.c
-├── stack_queue.c
-├── linked_list.c
-├── trees_bst.c
-├── heap.c
-├── graph.c
-└── dsa/                    # Public API headers
-    ├── array_ops.h
-    ├── recursion.h
-    ├── stack_queue.h
-    ├── linked_list.h
-    ├── trees_bst.h
-    ├── heap.h
-    └── graph.h
+├── CMakeLists.txt
+├── README.md
+├── include/
+│   └── dsa/                    # Public API headers
+│       ├── array_ops.h
+│       ├── recursion.h
+│       ├── stack_queue.h
+│       ├── linked_list.h
+│       ├── trees_bst.h
+│       ├── heap.h
+│       └── graph.h
+├── src/                        # Module implementations
+│   ├── array_ops.c
+│   ├── recursion.c
+│   ├── stack_queue.c
+│   ├── linked_list.c
+│   ├── trees_bst.c
+│   ├── heap.c
+│   └── graph.c
+└── examples/
+    └── main.c                  # Driver that exercises all modules
 ```
 
 ---
 
 ## Module Overview
 
-### 1. Recursion (`dsa/recursion.h` / `recursion.c`)
+### 1. Recursion (`include/dsa/recursion.h` / `src/recursion.c`)
 - Factorial & Fibonacci
 - Tower of Hanoi
 - Euclidean GCD
@@ -41,38 +44,38 @@ dsa_learning/
 - In-place string reversal
 - Combinations (`nCr`)
 
-### 2. Dynamic Arrays & Sorting (`dsa/array_ops.h` / `array_ops.c`)
+### 2. Dynamic Arrays & Sorting (`include/dsa/array_ops.h` / `src/array_ops.c`)
 - Dynamic array with automatic resizing
 - Insert / delete at arbitrary index
 - Linear search & Binary search
 - Bubble Sort, Insertion Sort, Quick Sort (Lomuto partition)
 
-### 3. Stacks & Queues (`dsa/stack_queue.h` / `stack_queue.c`)
+### 3. Stacks & Queues (`include/dsa/stack_queue.h` / `src/stack_queue.c`)
 - Array-based Stack (push / pop / peek / is_empty)
 - Bracket matching
 - Infix → Postfix conversion (Shunting-yard)
 - MinStack (O(1) get-min)
 - Circular Queue
 
-### 4. Linked Lists (`dsa/linked_list.h` / `linked_list.c`)
+### 4. Linked Lists (`include/dsa/linked_list.h` / `src/linked_list.c`)
 - Insert at head / tail, delete by value
 - Iterative list reverse
 - Floyd’s cycle detection
 - Merge two sorted lists
 - Find middle node (fast/slow pointer)
 
-### 5. Trees & BSTs (`dsa/trees_bst.h` / `trees_bst.c`)
+### 5. Trees & BSTs (`include/dsa/trees_bst.h` / `src/trees_bst.c`)
 - Pre-order, In-order, Post-order, Level-order traversals
 - Height, leaf count, mirror
 - BST insert / search / delete (3-case)
 - Min / Max / Range sum
 
-### 6. Binary Heap (`dsa/heap.h` / `heap.c`)
+### 6. Binary Heap (`include/dsa/heap.h` / `src/heap.c`)
 - Min-Heap with `heapify_up` / `heapify_down`
 - Insert & Extract-min
 - Heap Sort
 
-### 7. Graphs (`dsa/graph.h` / `graph.c`)
+### 7. Graphs (`include/dsa/graph.h` / `src/graph.c`)
 - Weighted adjacency-list representation
 - BFS & DFS
 - Dijkstra’s single-source shortest path
